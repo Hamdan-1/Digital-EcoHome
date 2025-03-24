@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colors for light theme -->
+    <color name="light_background">#FFFFFF</color>
+    <color name="light_text">#000000</color>
+
+    <!-- Colors for dark theme -->
+    <color name="dark_background">#000000</color>
+    <color name="dark_text">#FFFFFF</color>
 </resources>
