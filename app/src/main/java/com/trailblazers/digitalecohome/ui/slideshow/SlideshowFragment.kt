@@ -4,39 +4,45 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.trailblazers.digitalecohome.databinding.FragmentSlideshowBinding
+import androidx.lifecycle.observe
 
 class SlideshowFragment : Fragment() {
 
-    private var _binding: FragmentSlideshowBinding? = null
+    private lateinit var slideshowViewModel: SlideshowViewModel
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        slideshowViewModel = ViewModelProvider(this).get(SlideshowViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
-
-        _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textSlideshow
-        slideshowViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        return ComposeView(requireContext()).apply {
+            setContent {
+                MaterialTheme {
+                    Surface(modifier = Modifier.fillMaxSize()) {
+                        SlideshowScreen(slideshowViewModel)
+                    }
+                }
+            }
         }
-        return root
     }
+}
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+@Composable
+fun SlideshowScreen(viewModel: SlideshowViewModel) {
+    val text = viewModel.text.observeAsState()
+    Text(text.value ?: "This is slideshow Fragment")
 }
