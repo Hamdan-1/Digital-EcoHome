@@ -15,4 +15,14 @@
     <!-- Colors for dark theme -->
     <color name="dark_background">#000000</color>
     <color name="dark_text">#FFFFFF</color>
+
+    <!-- Colors for SmartEnergyHomepage component -->
+    <color name="primary_light_blue">#60a5fa</color>
+    <color name="secondary_light_green">#34d399</color>
+    <color name="warning_yellow">#fcd34d</color>
+    <color name="danger_red">#f87171</color>
+    <color name="background_dark_navy">#0f172a</color>
+    <color name="text_very_light_gray">#f8fafc</color>
+    <color name="card_darker_navy">#1e293b</color>
+    <color name="border_dark_gray">#334155</color>
 </resources>

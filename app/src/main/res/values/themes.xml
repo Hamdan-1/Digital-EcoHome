@@ -37,4 +37,21 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- New theme for SmartEnergyHomepage component -->
+    <style name="Theme.SmartEnergyHomepage" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_light_blue</item>
+        <item name="colorPrimaryVariant">@color/card_darker_navy</item>
+        <item name="colorOnPrimary">@color/text_very_light_gray</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondary_light_green</item>
+        <item name="colorSecondaryVariant">@color/border_dark_gray</item>
+        <item name="colorOnSecondary">@color/text_very_light_gray</item>
+        <!-- Background color. -->
+        <item name="android:colorBackground">@color/background_dark_navy</item>
+        <!-- Text color. -->
+        <item name="android:textColor">@color/text_very_light_gray</item>
+        <!-- Customize your theme here. -->
+    </style>
 </resources>

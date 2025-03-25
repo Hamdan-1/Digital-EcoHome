@@ -21,7 +21,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.trailblazers.digitalecohome.ui.gallery.GalleryScreen
-import com.trailblazers.digitalecohome.ui.home.HomeScreen
+import com.trailblazers.digitalecohome.ui.home.SmartEnergyHomepage
 import com.trailblazers.digitalecohome.ui.slideshow.SlideshowScreen
 
 class MainActivity : AppCompatActivity() {
@@ -76,31 +76,10 @@ fun DigitalEcoHomeApp() {
             startDestination = "home",
             modifier = Modifier.padding(innerPadding)
         ) {
-            composable("home") { HomeScreen() }
+            composable("home") { SmartEnergyHomepage() }
             composable("gallery") { GalleryScreen() }
             composable("slideshow") { SlideshowScreen() }
         }
-    }
-}
-
-@Composable
-fun HomeScreen() {
-    Column {
-        Text("Home Screen", fontSize = 24.sp)
-    }
-}
-
-@Composable
-fun GalleryScreen() {
-    Column {
-        Text("Gallery Screen", fontSize = 24.sp)
-    }
-}
-
-@Composable
-fun SlideshowScreen() {
-    Column {
-        Text("Slideshow Screen", fontSize = 24.sp)
     }
 }
 
