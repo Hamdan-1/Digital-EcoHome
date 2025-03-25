@@ -16,8 +16,13 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            setUrl("https://jitpack.io")
+        }
     }
 }
 
 rootProject.name = "Digital EcoHome"
 include(":app")
+maven { url "https://jitpack.io" }
+maven { url "https://jitpack.io" }

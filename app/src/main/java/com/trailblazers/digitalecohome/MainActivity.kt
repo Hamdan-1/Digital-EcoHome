@@ -12,7 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.trailblazers.digitalecohome.databinding.ActivityMainBinding
-import com.github.ybq.android.spinkit.SpinKitView
+import com.github.JuanArton.ArcProgressBar
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,6 +44,12 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        // Add ArcProgressBar usage
+        val arcProgressBar: ArcProgressBar = findViewById(R.id.arcprogressbar)
+        arcProgressBar.progress = 50f
+        arcProgressBar.progressColor = getColor(R.color.red)
+        arcProgressBar.trackColor = getColor(R.color.black)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -57,5 +63,3 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
-
-

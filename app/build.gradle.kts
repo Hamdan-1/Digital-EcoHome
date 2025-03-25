@@ -48,10 +48,12 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
-    // Add this line for SpinKit
-    implementation(libs.spinKit)
+    // Add this line for ArcProgressBar
+    implementation("com.github.JuanArton:Android-ArcProgressBar:0.7")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+implementation "com.github.JuanArton:Android-ArcProgressBar:0.7"
+implementation "com.github.JuanArton:Android-ArcProgressBar:0.7"
