@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -38,6 +39,12 @@ android {
         compose = true
     }
 }
+
+composeCompiler {
+    reportsDestination = layout.buildDirectory.dir("compose_compiler")
+    stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
