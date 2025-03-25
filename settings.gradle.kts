@@ -24,5 +24,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Digital EcoHome"
 include(":app")
-maven { url "https://jitpack.io" }
-maven { url "https://jitpack.io" }
