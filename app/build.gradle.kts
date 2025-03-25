@@ -37,11 +37,6 @@ android {
         viewBinding = true
     }
 }
-
-repositories {
-    maven { url "https://jitpack.io" }
-}
-
 dependencies {
 
     implementation(libs.androidx.core.ktx)
