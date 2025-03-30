@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Make sure these specific entries exist and are spelled correctly -->
+    <color name="backgroundLight">#FFFFFFFF</color> <!-- Example: White -->
+    <color name="surfaceDark">#FF1E1E1E</color>    <!-- Example: Dark Grey -->
+    <color name="backgroundDark">#FF121212</color>  <!-- Example: Near Black -->
+
+    <!-- Your other colors -->
+    <color name="PrimaryGreen">#FF4CAF50</color>
+    <color name="SecondaryBlue">#FF2196F3</color>
+    <color name="SurfaceLight">#FFF5F5F5</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

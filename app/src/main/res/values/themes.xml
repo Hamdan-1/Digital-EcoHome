@@ -1,19 +1,33 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.DigitalEcoHome" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+    <!-- Change parent to a Material 3 theme -->
+    <style name="Theme.DigitalEcoHome" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- Define attributes used BEFORE Compose takes over (e.g., launch screen) -->
+        <!-- Use colors defined in your colors.xml, preferably matching your Compose theme -->
+
+        <!-- Status bar color (optional, Compose's SideEffect in Theme.kt often overrides this later) -->
+        <!-- You can reference a color directly -->
+        <item name="android:statusBarColor">@color/PrimaryGreen</item> <!-- Make sure PrimaryGreen is defined in colors.xml -->
+
+        <!-- Window background (optional, affects initial window before content loads) -->
+        <item name="android:windowBackground">@color/backgroundLight</item> <!-- Make sure backgroundLight is defined in colors.xml -->
+
+        <!-- Remove Material 2 specific attributes -->
+        <!-- <item name="colorPrimary">@color/purple_500</item> -->
+        <!-- <item name="colorPrimaryVariant">@color/purple_700</item> -->
+        <!-- <item name="colorOnPrimary">@color/white</item> -->
+        <!-- <item name="colorSecondary">@color/teal_200</item> -->
+        <!-- <item name="colorSecondaryVariant">@color/teal_700</item> -->
+        <!-- <item name="colorOnSecondary">@color/black</item> -->
+
+        <!-- Customize your theme here if needed for specific View components (rarely needed now) -->
+
     </style>
 
+    <!-- These styles were likely for the old AppBar/Toolbar Views and are not needed for Compose -->
+    <!-- Delete the styles below -->
+    <!--
     <style name="Theme.DigitalEcoHome.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -22,4 +36,6 @@
     <style name="Theme.DigitalEcoHome.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.DigitalEcoHome.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    -->
+
 </resources>

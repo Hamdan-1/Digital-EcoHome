@@ -1,16 +1,27 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.DigitalEcoHome" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+    <!-- Base application theme for Dark Mode. -->
+    <!-- Use the same Material 3 parent -->
+    <style name="Theme.DigitalEcoHome" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- Define attributes used BEFORE Compose takes over (e.g., launch screen) -->
+        <!-- Use dark theme colors defined in your colors.xml -->
+
+        <!-- Status bar color (optional) -->
+        <item name="android:statusBarColor">@color/surfaceDark</item> <!-- Example: Use a dark surface color, ensure it's defined -->
+
+        <!-- Window background (optional) -->
+        <item name="android:windowBackground">@color/backgroundDark</item> <!-- Ensure backgroundDark is defined in colors.xml -->
+
+        <!-- Remove Material 2 specific attributes -->
+        <!-- <item name="colorPrimary">@color/purple_200</item> -->
+        <!-- <item name="colorPrimaryVariant">@color/purple_700</item> -->
+        <!-- <item name="colorOnPrimary">@color/black</item> -->
+        <!-- <item name="colorSecondary">@color/teal_200</item> -->
+        <!-- <item name="colorSecondaryVariant">@color/teal_200</item> -->
+        <!-- <item name="colorOnSecondary">@color/black</item> -->
+
     </style>
+
+    <!-- Also remove the NoActionBar, AppBarOverlay, PopupOverlay styles if they existed here -->
+
 </resources>
