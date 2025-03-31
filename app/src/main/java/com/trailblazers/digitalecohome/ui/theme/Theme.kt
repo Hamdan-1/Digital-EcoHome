@@ -1,5 +1,5 @@
 package com.trailblazers.digitalecohome.ui.theme
-
+import androidx.compose.ui.graphics.Color
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -55,8 +55,12 @@ fun DigitalEcoHomeTheme( // Rename YourAppTheme to match your app
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> {
+            DarkColorScheme
+        }
+        else -> {
+            LightColorScheme
+        }
     }
     val view = LocalView.current
     if (!view.isInEditMode) {

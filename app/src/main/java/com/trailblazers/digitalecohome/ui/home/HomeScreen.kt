@@ -1,3 +1,4 @@
+// app/src/main/java/com/trailblazers/digital-EcoHome/ui/home/HomeScreen.kt
 package com.trailblazers.digitalecohome.ui.home
 
 import androidx.compose.foundation.layout.Arrangement
@@ -5,7 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+// import androidx.compose.material3.Scaffold // REMOVE if unused import reported here
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -14,18 +15,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.compose.collectAsStateWithLifecycle // **FIX: Add Import**
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.trailblazers.digitalecohome.R // Import your R class
+import com.trailblazers.digitalecohome.R
 import com.trailblazers.digitalecohome.ui.theme.DigitalEcoHomeTheme
 
 @Composable
 fun HomeScreen(
-    // Pass NavController if needed for navigation from this screen
-    // navController: NavController,
-    homeViewModel: HomeViewModel = viewModel() // Get ViewModel instance
+    homeViewModel: HomeViewModel = viewModel()
 ) {
-    // Observe ViewModel state (example with a hypothetical text LiveData/StateFlow)
     val textState by homeViewModel.text.collectAsStateWithLifecycle()
 
     Column(
@@ -35,29 +33,28 @@ fun HomeScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // **FIX: Simplify Text call**
         Text(
-            text = stringResource(R.string.menu_home), // Example using string resource
-            style = MaterialTheme.typography.titleLarge,
-            modifier = Modifier.padding(bottom = 8.dp)
+            text = stringResource(R.string.menu_home),
+            modifier = Modifier.padding(bottom = 8.dp), // Keep relevant modifiers
+            style = MaterialTheme.typography.titleLarge // Use style primarily
         )
+        // **FIX: Simplify Text call**
         Text(
-            text = textState, // Display data from ViewModel
-            style = MaterialTheme.typography.bodyMedium
+            text = textState,
+            style = MaterialTheme.typography.bodyMedium // Use style primarily
+            // Add modifier, color etc. if needed and unambiguous
         )
-        // Add your energy monitoring UI elements here:
-        // Charts (using libraries like MPAndroidChart-Compose or Compose custom drawing)
-        // Data displays (Text, Cards, Lists)
-        // Control elements (Buttons, Switches)
+        // Add your energy monitoring UI elements here
     }
 }
 
+// Preview code remains the same...
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
     DigitalEcoHomeTheme {
-        // Provide a dummy ViewModel for preview if needed
-        val previewViewModel = HomeViewModel() // Assuming constructor is simple
-        // You might need to manually set preview data in the ViewModel
+        val previewViewModel = HomeViewModel()
         HomeScreen(homeViewModel = previewViewModel)
     }
 }
