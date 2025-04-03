@@ -62,7 +62,9 @@ dependencies {
     implementation(libs.androidx.compose.material3) // Material Design 3 components
 
     // Compose Integration
+
     implementation(libs.material)
+    implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.activity.compose) // For setContent in Activity
     implementation(libs.androidx.lifecycle.viewmodel.compose) // For viewModel() composable
     implementation(libs.androidx.navigation.compose) // For Compose Navigation

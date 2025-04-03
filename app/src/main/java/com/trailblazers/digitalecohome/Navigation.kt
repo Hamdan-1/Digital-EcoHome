@@ -1,11 +1,25 @@
-package com.trailblazers.digitalecohome // Adjust package if needed
+package com.trailblazers.digitalecohome
 
-// Define constants for your navigation routes
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Assessment
+import androidx.compose.material.icons.filled.Devices
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.ui.graphics.vector.ImageVector
+
 object AppDestinations {
-    const val HOME = "home"
-    const val GALLERY = "gallery"
-    const val SLIDESHOW = "slideshow"
-    // Add more destinations as needed
+    const val DASHBOARD = "dashboard"
+    const val DEVICES = "devices"
+    const val REPORT = "report"
 }
 
-// You can also define sealed classes for arguments later if needed
+data class NavDrawerItem(
+    val route: String,
+    val labelResId: Int,
+    val icon: ImageVector
+)
+
+val drawerItems = listOf(
+    NavDrawerItem(AppDestinations.DASHBOARD, R.string.menu_dashboard, Icons.Filled.Home),
+    NavDrawerItem(AppDestinations.DEVICES, R.string.menu_devices, Icons.Filled.Devices),
+    NavDrawerItem(AppDestinations.REPORT, R.string.menu_report, Icons.Filled.Assessment)
+)
