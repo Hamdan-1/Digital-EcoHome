@@ -23,3 +23,26 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 </androidx.drawerlayout.widget.DrawerLayout>
+<Button
+    android:id="@+id/washingMachineButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Washing Machine" />
+
+<Button
+    android:id="@+id/lightBulbsButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Light Bulbs" />
+
+<Button
+    android:id="@+id/pcButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="PC" />
+
+<Button
+    android:id="@+id/tvButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="TV" />

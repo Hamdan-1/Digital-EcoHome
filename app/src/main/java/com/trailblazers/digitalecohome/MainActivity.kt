@@ -55,4 +55,81 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+    import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main) // Make sure this is the correct layout file
+
+        // Find the buttons
+        val washingMachineButton = findViewById<Button>(R.id.washingMachineButton)
+        val lightBulbsButton = findViewById<Button>(R.id.lightBulbsButton)
+        val pcButton = findViewById<Button>(R.id.pcButton)
+        val tvButton = findViewById<Button>(R.id.tvButton)
+
+        // Set click listeners for each button
+        washingMachineButton.setOnClickListener {
+            // Start the ApplianceDetailsActivity and pass the appliance name
+            val intent = Intent(this, ApplianceDetailsActivity::class.java)
+            intent.putExtra("applianceName", "Washing Machine")
+            startActivity(intent)
+        }
+
+        lightBulbsButton.setOnClickListener {
+            val intent = Intent(this, ApplianceDetailsActivity::class.java)
+            intent.putExtra("applianceName", "Light Bulbs")
+            startActivity(intent)
+        }
+
+        pcButton.setOnClickListener {
+            val intent = Intent(this, ApplianceDetailsActivity::class.java)
+            intent.putExtra("applianceName", "PC")
+            startActivity(intent)
+        }
+
+        tvButton.setOnClickListener {
+            val intent = Intent(this, ApplianceDetailsActivity::class.java)
+            intent.putExtra("applianceName", "TV")
+            startActivity(intent)
+        }
+    }
+}
+
+// Find the buttons
+val washingMachineButton = findViewById<Button>(R.id.washingMachineButton)
+val lightBulbsButton = findViewById<Button>(R.id.lightBulbsButton)
+val pcButton = findViewById<Button>(R.id.pcButton)
+val tvButton = findViewById<Button>(R.id.tvButton)
+
+// Set click listeners for each button
+washingMachineButton.setOnClickListener {
+    // Start the ApplianceDetailsActivity and pass the appliance name
+    val intent = Intent(this, ApplianceDetailsActivity::class.java)
+    intent.putExtra("applianceName", "Washing Machine")
+    startActivity(intent)
+}
+
+lightBulbsButton.setOnClickListener {
+    val intent = Intent(this, ApplianceDetailsActivity::class.java)
+    intent.putExtra("applianceName", "Light Bulbs")
+    startActivity(intent)
+}
+
+pcButton.setOnClickListener {
+    val intent = Intent(this, ApplianceDetailsActivity::class.java)
+    intent.putExtra("applianceName", "PC")
+    startActivity(intent)
+}
+
+tvButton.setOnClickListener {
+    val intent = Intent(this, ApplianceDetailsActivity::class.java)
+    intent.putExtra("applianceName", "TV")
+    startActivity(intent)
+}
 }
