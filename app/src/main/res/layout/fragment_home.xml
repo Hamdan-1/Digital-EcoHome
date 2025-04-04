@@ -1,22 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+    <!-- First Progress Bar: Efficiency (Left) -->
+    <com.github.lzyzsd.circleprogress.ArcProgress
+        android:id="@+id/efficiency_arc_progress"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/usage_arc_progress"
+        app:arc_progress="0"
+        app:arc_max="100"
+        app:arc_stroke_width="10dp"
+        app:arc_unfinished_color="#CCCCCC"
+        app:arc_finished_color="#4CAF50"
+        app:arc_text_size="28sp"
+        app:arc_text_color="#333333"
+        app:arc_bottom_text="Efficiency"
+        app:arc_bottom_text_size="12sp"
+        app:arc_suffix_text="%"
+        tools:ignore="MissingClass" />
+
+    <!-- Second Progress Bar: Active % (Right) -->
+    <com.github.lzyzsd.circleprogress.ArcProgress
+        android:id="@+id/usage_arc_progress"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/efficiency_arc_progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:arc_progress="0"
+        app:arc_max="100"
+        app:arc_stroke_width="10dp"
+        app:arc_unfinished_color="#CCCCCC"
+        app:arc_finished_color="#2196F3"
+        app:arc_text_size="28sp"
+        app:arc_text_color="#333333"
+        app:arc_bottom_text="Active %"
+        app:arc_bottom_text_size="12sp"
+        app:arc_suffix_text="%"
+        tools:ignore="MissingClass" />
+
+
+    <com.github.lzyzsd.circleprogress.ArcProgress
+        android:id="@+id/cost_rate_arc_progress"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/efficiency_arc_progress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:arc_progress="0"
+        app:arc_max="100"
+        app:arc_stroke_width="12dp"
+        app:arc_unfinished_color="#CCCCCC"
+        app:arc_finished_color="#FF9800"
+        app:arc_text_size="40sp"
+        app:arc_text_color="#333333"
+        app:arc_bottom_text="Cost Rate"
+        app:arc_bottom_text_size="14sp"
+        app:arc_suffix_text="%"
+        tools:ignore="MissingClass" />
+
+
+
     <TextView
         android:id="@+id/text_home"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/cost_rate_arc_progress"
+        tools:text="This is home Fragment Content" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

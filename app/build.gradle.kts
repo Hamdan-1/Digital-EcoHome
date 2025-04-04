@@ -39,7 +39,7 @@ android {
 }
 
 dependencies {
-
+    implementation("com.github.lzyzsd:circleprogress:1.2.4")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
