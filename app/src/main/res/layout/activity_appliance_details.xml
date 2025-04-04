@@ -1,0 +1,126 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/applianceName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:text="Appliance Name" />
+
+    <TextView
+        android:id="@+id/timeOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time On: " />
+
+    <TextView
+        android:id="@+id/electricityConsumption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Electricity Consumption: " />
+
+    <TextView
+        android:id="@+id/standbyUsage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Standby Usage: " />
+
+    <TextView
+        android:id="@+id/currentStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Status: " />
+
+    <TextView
+        android:id="@+id/dailyUsage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daily Usage: " />
+
+    <TextView
+        android:id="@+id/weeklyUsage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weekly Usage: " />
+
+    <TextView
+        android:id="@+id/monthlyUsage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monthly Usage: " />
+
+    <TextView
+        android:id="@+id/dailyCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daily Cost: " />
+
+    <TextView
+        android:id="@+id/weeklyCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weekly Cost: " />
+
+    <TextView
+        android:id="@+id/monthlyCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monthly Cost: " />
+
+    <TextView
+        android:id="@+id/energyRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Energy Rating: " />
+
+</LinearLayout>
+
+import android.os.Bundle
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+class ApplianceDetailsActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_appliance_details)
+
+        // Get the appliance name from the button click
+        val applianceName = intent.getStringExtra("applianceName")
+
+        // Find the TextViews in the layout
+        val applianceNameTextView = findViewById<TextView>(R.id.applianceName)
+        val timeOnTextView = findViewById<TextView>(R.id.timeOn)
+        val electricityConsumptionTextView = findViewById<TextView>(R.id.electricityConsumption)
+        val standbyUsageTextView = findViewById<TextView>(R.id.standbyUsage)
+        val currentStatusTextView = findViewById<TextView>(R.id.currentStatus)
+        val dailyUsageTextView = findViewById<TextView>(R.id.dailyUsage)
+        val weeklyUsageTextView = findViewById<TextView>(R.id.weeklyUsage)
+        val monthlyUsageTextView = findViewById<TextView>(R.id.monthlyUsage)
+        val dailyCostTextView = findViewById<TextView>(R.id.dailyCost)
+        val weeklyCostTextView = findViewById<TextView>(R.id.weeklyCost)
+        val monthlyCostTextView = findViewById<TextView>(R.id.monthlyCost)
+        val energyRatingTextView = findViewById<TextView>(R.id.energyRating)
+
+        // Set the appliance name
+        applianceNameTextView.text = applianceName
+
+        // TODO: Replace with actual appliance data
+        timeOnTextView.text = "Time On: 2 hours"
+        electricityConsumptionTextView.text = "Electricity Consumption: 1.5 kWh"
+        standbyUsageTextView.text = "Standby Usage: Yes"
+        currentStatusTextView.text = "Current Status: On"
+        dailyUsageTextView.text = "Daily Usage: 3 kWh"
+        weeklyUsageTextView.text = "Weekly Usage: 15 kWh"
+        monthlyUsageTextView.text = "Monthly Usage: 60 kWh"
+        dailyCostTextView.text = "Daily Cost: $0.50"
+        weeklyCostTextView.text = "Weekly Cost: $2.50"
+        monthlyCostTextView.text = "Monthly Cost: $10.00"
+        energyRatingTextView.text = "Energy Rating: B"
+    }
+}

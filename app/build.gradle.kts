@@ -52,3 +52,44 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
+
+// build.gradle (Groovy DSL)
+dependencies {
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3" // Use the latest stable version
+
+    // OkHttp (for HTTP requests)
+    implementation "com.squareup.okhttp3:okhttp:4.11.0" // Use the latest stable version
+
+    // Paho MQTT Android Service (for MQTT)
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+
+    // Required if using Paho with Android API 26+
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
+
+    // Other standard dependencies (likely already there)
+    implementation 'androidx.appcompat:appcompat:...' // Use your existing version
+    // ... other dependencies
+}
+
+// build.gradle.kts (Kotlin DSL)
+dependencies {
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3") // Use the latest stable version
+
+    // OkHttp (for HTTP requests)
+    implementation("com.squareup.okhttp3:okhttp:4.11.0") // Use the latest stable version
+
+    // Paho MQTT Android Service (for MQTT)
+    implementation("org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5")
+    implementation("org.eclipse.paho:org.eclipse.paho.android.service:1.1.1")
+
+    // Required if using Paho with Android API 26+
+    implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
+
+    // Other standard dependencies (likely already there)
+    implementation("androidx.appcompat:appcompat:...") // Use your existing version
+    // ... other dependencies
+}
