@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.*
 import com.trailblazers.digitalecohome.ui.dashboard.HomeScreen
-import com.trailblazers.digitalecohome.ui.report.DevicesScreen
+import com.trailblazers.digitalecohome.ui.devices.DevicesScreen  // Updated import here
 import com.trailblazers.digitalecohome.ui.report.EnergyReportScreen
 import com.trailblazers.digitalecohome.ui.theme.DigitalEcoHomeTheme
 import kotlinx.coroutines.launch
