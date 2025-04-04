@@ -124,3 +124,40 @@ class ApplianceDetailsActivity : AppCompatActivity() {
         energyRatingTextView.text = "Energy Rating: B"
     }
 }
+<LinearLayout
+        android:id="@+id/performance_buttons_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check Performance 1" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check Performance 2" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Appliances with Automatic Control:"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/controlled_appliances_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="24dp"
+        android:paddingEnd="16dp"
+        android:text="None" /> <Button
+        android:id="@+id/enable_lightbulb_control_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable Automatic Light Control"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp" />

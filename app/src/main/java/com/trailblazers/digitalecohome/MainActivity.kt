@@ -133,3 +133,103 @@ tvButton.setOnClickListener {
     startActivity(intent)
 }
 }
+package com.trailazzers.digitalecchiame
+
+import android.os.Bundle
+import android.widget.AdapterView
+import android.widget.Button
+import android.widget.Spinner
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.trailazzers.digitalecchiame.automation.AutomationEngine
+
+class MonActivity : AppCompatActivity() {
+
+    private lateinit var automationEngine: AutomationEngine
+    private lateinit var enableLightbulbControlButton: Button
+    private lateinit var controlledAppliancesListTextView: TextView
+    private lateinit var timeoutSpinner: Spinner
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_opplanet_cctaram) // Make sure this matches your layout file name
+
+        automationEngine = AutomationEngine(applicationContext)
+        enableLightbulbControlButton = findViewById(R.id.enable_lightbulb_control_button)
+        controlledAppliancesListTextView = findViewById(R.id.controlled_appliances_list)
+        timeoutSpinner = findViewById(R.id.light_control_timeout_spinner)
+
+        // Initial update of the controlled appliances list
+        updateControlledAppliancesText()
+
+        enableLightbulbControlButton.setOnClickListener {
+            val isEnabled = !automationEngine.isLightControlEnabled // Toggle the state
+            automationEngine.enableLightControl(isEnabled)
+            updateButtonText(isEnabled)
+            updateControlledAppliancesText()
+        }
+
+        // Load initial button state
+        updateButtonText(automationEngine.isLightControlEnabled)
+
+        // Spinner logic for setting the timeout duration
+        timeoutSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: android.view.View?, position: Int, id: Long) {
+                val selectedDuration = parent?.getItemAtPosition(position).toString()
+                val minutes = when (selectedDuration) {
+                    "5 minutes" -> 5
+                    "10 minutes" -> 10
+                    "20 minutes" -> 20
+                    "30 minutes" -> 30
+                    "1 hour" -> 60
+                    else -> 10 // Default
+                }
+                automationEngine.setNoHumanDetectedDuration(minutes)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Do nothing
+            }
+        }
+
+        // Set the initial selection of the spinner based on the loaded preference
+        val defaultMinutes = 10 // Default value
+        val savedMinutes = getSharedPreferences("com.trailazzers.digitalecchiame_preferences", MODE_PRIVATE)
+            .getInt("no_human_detected_duration", defaultMinutes)
+
+        val spinnerPosition = when (savedMinutes) {
+            5 -> 0
+            10 -> 1
+            20 -> 2
+            30 -> 3
+            60 -> 4
+            else -> 1 // Default to 10 minutes
+        }
+        timeoutSpinner.setSelection(spinnerPosition)
+    }
+
+    private fun updateButtonText(isEnabled: Boolean) {
+        enableLightbulbControlButton.text = if (isEnabled) {
+            "Disable Automatic Light Control"
+        } else {
+            "Enable Automatic Light Control"
+        }
+    }
+
+    private fun updateControlledAppliancesText() {
+        val controlledAppliances = mutableListOf<String>()
+        if (automationEngine.isLightControlEnabled) {
+            controlledAppliances.add("Lightbulbs")
+        }
+        controlledAppliancesListTextView.text = if (controlledAppliances.isEmpty()) {
+            "None"
+        } else {
+            controlledAppliances.joinToString(", ")
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        automationEngine.stopAutomationLoop()
+    }
+}
